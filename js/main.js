@@ -42,7 +42,7 @@ function drawChords(matrix, mmap){
         .domain(d3.range(1))
         .range(["#666666"]);
 
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#area-chord").append("svg")
         .attr("width", width)
         .attr("height", height)
         .append("g")
