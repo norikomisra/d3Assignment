@@ -1,0 +1,112 @@
+country,region
+Kenya,Eastern Africa
+Cameroon,Middle Africa
+Chad,Middle Africa
+Libya,Northern Africa
+Sudan,Northern Africa
+Tunisia,Northern Africa
+South Africa,Southern Africa
+Nigeria,Western Africa
+Senegal,Western Africa
+Dominican Republic,Caribbean
+Haiti,Caribbean
+Jamaica,Caribbean
+El Salvador,Central America
+Guatemala,Central America
+Honduras,Central America
+Mexico,Central America
+Nicaragua,Central America
+Argentina,South America
+Brazil,South America
+Colombia,South America
+Ecuador,South America
+Peru,South America
+Bermuda,Northern America
+Canada,Northern America
+Kazakhstan,Central Asia
+Tajikistan,Central Asia
+Uzbekistan,Central Asia
+Japan,Eastern Asia
+Bangladesh,Southern Asia
+India,Southern Asia
+Nepal,Southern Asia
+Sri Lanka,Southern Asia
+Cambodia,South-Eastern Asia
+Indonesia,South-Eastern Asia
+Malaysia,South-Eastern Asia
+Philippines,South-Eastern Asia
+Singapore,South-Eastern Asia
+Thailand,South-Eastern Asia
+Armenia,Western Asia
+Azerbaijan,Western Asia
+Bahrain,Western Asia
+Georgia,Western Asia
+Israel,Western Asia
+Jordan,Western Asia
+Kuwait,Western Asia
+Oman,Western Asia
+Qatar,Western Asia
+Saudi Arabia,Western Asia
+Turkey,Western Asia
+United Arab Emirates,Western Asia
+Bulgaria,Eastern Europe
+Czech Republic,Eastern Europe
+Hungary,Eastern Europe
+Poland,Eastern Europe
+Romania,Eastern Europe
+Russian Federation,Eastern Europe
+Ukraine,Eastern Europe
+Denmark,Northern Europe
+Ireland,Northern Europe
+Lithuania,Northern Europe
+Norway,Northern Europe
+Sweden,Northern Europe
+Albania,Southern Europe
+Bosnia and Herzegovina,Southern Europe
+Croatia,Southern Europe
+Greece,Southern Europe
+Italy,Southern Europe
+Portugal,Southern Europe
+Spain,Southern Europe
+Austria,Western Europe
+Belgium,Western Europe
+France,Western Europe
+Germany,Western Europe
+Luxembourg,Western Europe
+Netherlands,Western Europe
+Switzerland,Western Europe
+Australia,Australia and New Zealand
+New Zealand,Australia and New Zealand
+Albania,Southern Europe
+Armenia,Western Asia
+Azerbaijan,Western Asia
+Bangladesh,Southern Asia
+Bermuda,Northern America
+Bulgaria,Eastern Europe
+Cambodia,South-Eastern Asia
+Czech Republic,Eastern Europe
+Denmark,Northern Europe
+Egypt. Arab Rep.,Northern Africa
+Georgia,Western Asia
+Greece,Southern Europe
+Hong Kong SAR. China,Eastern Asia
+Hungary,Eastern Europe
+Iran. Islamic Rep.,Southern Asia
+Japan,Eastern Asia
+Korea. Rep.,Eastern Asia
+Kyrgyz Republic,Central Asia
+Lithuania,Northern Europe
+Macao SAR. China,Eastern Asia
+Nepal,Southern Asia
+Norway,Northern Europe
+Poland,Eastern Europe
+Russian Federation,Eastern Europe
+Slovak Republic,Eastern Europe
+Sweden,Northern Europe
+Thailand,South-Eastern Asia
+Turkey,Western Asia
+Ukraine,Eastern Europe
+Uzbekistan,Central Asia
+Venezuela. RB,South America
+West Bank and Gaza,Western Asia
+Yemen. Rep.,Western Asia

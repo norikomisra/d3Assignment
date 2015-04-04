@@ -1,0 +1,112 @@
+country,lang
+Cameroon,English
+Canada,English
+India,English
+Ireland,English
+Jamaica,English
+Kenya,English
+New Zealand,English
+Nigeria,English
+Philippines,English
+Singapore,English
+South Africa,English
+Sudan,English
+United Kingdom,English
+Australia,English
+United States,English
+France,French
+Canada,French
+Cameroon,French
+Senegal,French
+Belgium,French
+Chad,French
+Haiti,French
+Switzerland,French
+Luxembourg,French
+Bahrain,Arabic
+Chad,Arabic
+Israel,Arabic
+Jordan,Arabic
+Kuwait,Arabic
+Libya,Arabic
+Oman,Arabic
+Qatar,Arabic
+Saudi Arabia,Arabic
+Sudan,Arabic
+Tunisia,Arabic
+United Arab Emirates,Arabic
+Mexico,Spanish
+Spain,Spanish
+Colombia,Spanish
+Argentina,Spanish
+Peru,Spanish
+Ecuador,Spanish
+Guatemala,Spanish
+Bolivia,Spanish
+Dominican Republic,Spanish
+Honduras,Spanish
+El Salvador,Spanish
+Nicaragua,Spanish
+Portugal,Portuguese
+Brazil,Portuguese
+Kazakhstan,Russian
+Tajikistan,Russian
+Germany,German
+Austria,German
+Switzerland,German
+Belgium,German
+Luxembourg,German
+Italy,German
+Senegal,Fula
+Italy,Italian
+Croatia,Italian
+Switzerland,Italian
+Malaysia,Malay
+Indonesia,Malay
+Singapore,Malay
+Senegal,Maning
+Kenya,Swahili
+Singapore,"Chinese
+Netherlands,Dutch
+Belgium,Dutch
+Romania,Romanian
+Moldova,Romanian
+Bosnia and Herzegovina,Serbian
+Senegal,Soninke
+India,Tamil
+Singapore,Tamil
+Sri Lanka,Tamil
+South Africa,Tswana
+Albania,
+Armenia,
+Azerbaijan,
+Bangladesh,
+Bermuda,
+Bulgaria,
+Cambodia,
+Czech Republic,
+Denmark,
+Egypt. Arab Rep.,
+Georgia,
+Greece,
+Hong Kong SAR. China,
+Hungary,
+Iran. Islamic Rep.,
+Japan,
+Korea. Rep.,
+Kyrgyz Republic,
+Lithuania,
+Macao SAR. China,
+Nepal,
+Norway,
+Poland,
+Russian Federation,
+Slovak Republic,
+Sweden,
+Thailand,
+Turkey,
+Ukraine,
+Uzbekistan,
+Venezuela. RB,
+West Bank and Gaza,
+Yemen. Rep.,
