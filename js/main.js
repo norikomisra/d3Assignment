@@ -22,9 +22,10 @@ d3.csv('data/data_3000.csv', function (error, data) {
 //*********
 //Draw the chord diagram
 //*********
+var svg, rdr;
 
 function drawChords(matrix, mmap){
-    var rdr = chordRdr(matrix, mmap);
+    rdr = chordRdr(matrix, mmap);
     
     var chord = d3.layout.chord()
         .padding(.05)
@@ -44,7 +45,7 @@ function drawChords(matrix, mmap){
         .domain(d3.range(1))
         .range(["#666666"]);
 
-    var svg = d3.select("#area-chord").append("svg")
+    svg = d3.select("#area-chord").append("svg")
         .attr("width", width)
         .attr("height", height)
         .append("g")
@@ -93,17 +94,6 @@ function drawChords(matrix, mmap){
 // end of drawChords
 }
 
-// Returns an array of tick angles and labels, given a group.
-function groupTicks(d) {
-  var k = (d.endAngle - d.startAngle) / d.value;
-  return d3.range(0, d.value, 1000).map(function(v, i) {
-    return {
-      angle: v * k + d.startAngle,
-      label: i % 5 ? null : v / 1000 + "k"
-    };
-  });
-}
-
 // Returns an event handler for fading a given chord group.
 function fade(opacity) {
   return function(g, i) {
@@ -125,4 +115,19 @@ function mouseover(d, i) {
     chordPaths.classed("fade", function(p) {
         return p.source.index != i && p.target.index != i;
     });
+}
+
+function chordTip (d) {
+    var p = d3.format(".2%"), q = d3.format(",.3r");
+    return "Chord Info:<br/>"
+      + p(d.svalue/d.stotal) + " (" + q(d.svalue) + ") of "
+      + d.sname + " prefer " + d.tname
+      + (d.sname === d.tname ? "": ("<br/>while...<br/>"
+      + p(d.tvalue/d.ttotal) + " (" + q(d.tvalue) + ") of "
+      + d.tname + " prefer " + d.sname));
+}
+
+function groupTip (d) {
+    var p = d3.format(".1%"), q = d3.format(",.3r");
+    return d.gname + " : " + q(d.gvalue);
 }
