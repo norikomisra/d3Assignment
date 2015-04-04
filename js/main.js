@@ -24,6 +24,8 @@ d3.csv('data/data_3000.csv', function (error, data) {
 //*********
 
 function drawChords(matrix, mmap){
+    var rdr = chordRdr(matrix, mmap);
+    
     var chord = d3.layout.chord()
         .padding(.05)
         .sortSubgroups(d3.descending)
@@ -46,10 +48,9 @@ function drawChords(matrix, mmap){
         .attr("width", width)
         .attr("height", height)
         .append("g")
-        
-    //We may want to set a unique selector 
-    //.attr("id", "circle")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+        //We may want to set a unique selector
+        .attr("id", "circle")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     svg.append("g").selectAll("path")
         .data(chord.groups)
@@ -60,35 +61,6 @@ function drawChords(matrix, mmap){
         .on("mouseover", fade(.1))
         .on("mouseout", fade(1));
 
-    var ticks = svg.append("g").selectAll("g")
-        .data(chord.groups)
-        .enter().append("g").selectAll("g")
-        .data(groupTicks)
-        .enter().append("g")
-        .attr("transform", function(d) {
-            return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-              + "translate(" + outerRadius + ",0)";
-        });
-
-//I don't think we need to draw lines around the circle, so we can remove the following, maybe?
-// ticks.append("line")
-//     .attr("x1", 1)
-//     .attr("y1", 0)
-//     .attr("x2", 5)
-//     .attr("y2", 0)
-//     .style("stroke", "#000");
-
-    ticks.append("text")
-        .attr("x", 8)
-        .attr("dy", ".35em")
-        .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180)translate(-16)" : null; })
-        .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-        //Add some more styling
-        .style("font-family", "helvetica, arial, sans-serif")
-        .style("font-size", "9px")
-        //We need to pass country names to the labels
-        .text(function(d) { return d.label; });
-
     svg.append("g")
         .attr("class", "chord")
         .selectAll("path")
@@ -97,6 +69,26 @@ function drawChords(matrix, mmap){
         .attr("d", d3.svg.chord().radius(innerRadius))
         .style("fill", function(d) { return fill(d.target.index); })
         .style("opacity", 1);
+        
+    var label = svg.selectAll("g.group")
+        .data(chord.groups())
+        .enter().append("svg:g")
+        .attr("class", "group")
+        .on("mouseover", mouseover)
+        .on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
+        
+    label.append("svg:text")
+        .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
+        .attr("dy", ".35em")
+        .style("font-family", "helvetica, arial, sans-serif")
+        .style("font-size", "10px")
+        .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
+        .attr("transform", function(d) {
+            return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
+                + "translate(" + (innerRadius + 30) + ")"
+                + (d.angle > Math.PI ? "rotate(180)" : "");
+        })
+        .text(function(d) { return rdr(d).gname; });
 
 // end of drawChords
 }
@@ -121,4 +113,16 @@ function fade(opacity) {
         .style("opacity", opacity);
   };
 }
-//}
+
+// Behavior for mouseover
+function mouseover(d, i) {
+    d3.select("#tooltip")
+        .style("visibility", "visible")
+        .html(groupTip(rdr(d)))
+        .style("top", function () { return (d3.event.pageY - 80)+"px"})
+        .style("left", function () { return (d3.event.pageX - 130)+"px"});
+
+    chordPaths.classed("fade", function(p) {
+        return p.source.index != i && p.target.index != i;
+    });
+}
