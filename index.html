@@ -16,7 +16,7 @@ body {
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
-<script src="mapper.js"></script>
+<script src="js/mapper.js"></script>
 
 <script>
 
@@ -25,7 +25,7 @@ body {
 //*********
 
 // Create matrix and map
-d3.csv('data.csv', function (error, data) {
+d3.csv('data/data_3000.csv', function (error, data) {
     var mpr = chordMpr(data);
 
     mpr
