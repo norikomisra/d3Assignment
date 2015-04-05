@@ -4,7 +4,8 @@
 
 // Create matrix and map
 d3.csv('data/data_3000.csv', function (error, data) {
-    var mpr = chordMpr(data);
+    sortedData = getSortedData(data);
+    var mpr = chordMpr(sortedData);
 
     mpr
     .addValuesToMap('sender')
