@@ -23,7 +23,7 @@ d3.csv('data/data_3000.csv', function (error, data) {
 //*********
 //Draw the chord diagram
 //*********
-var svg, rdr;
+var svg, rdr, chordPaths;
 
 function drawChords(matrix, mmap){
     rdr = chordRdr(matrix, mmap);
@@ -63,20 +63,22 @@ function drawChords(matrix, mmap){
         .on("mouseover", fade(.1))
         .on("mouseout", fade(1));
 
-    svg.append("g")
+    chordPaths = svg.append("g")
         .attr("class", "chord")
         .selectAll("path")
         .data(chord.chords)
         .enter().append("path")
         .attr("d", d3.svg.chord().radius(innerRadius))
         .style("fill", function(d) { return fill(d.target.index); })
-        .style("opacity", 1);
+        .style("opacity", 1)
+        .on("mouseover", mouseoverChord)
+        .on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
         
     var label = svg.selectAll("g.group")
         .data(chord.groups())
         .enter().append("svg:g")
         .attr("class", "group")
-        .on("mouseover", mouseover)
+        .on("mouseover", mouseoverArc)
         .on("mouseout", function (d) { d3.select("#tooltip").style("visibility", "hidden") });
         
     label.append("svg:text")
@@ -105,8 +107,8 @@ function fade(opacity) {
   };
 }
 
-// Behavior for mouseover
-function mouseover(d, i) {
+// Tooltip for arc
+function mouseoverArc(d, i) {
     d3.select("#tooltip")
         .style("visibility", "visible")
         .html(groupTip(rdr(d)))
@@ -118,14 +120,23 @@ function mouseover(d, i) {
     });
 }
 
+// Tooltip for chord
+function mouseoverChord(d, i) {
+    d3.select("#tooltip")
+        .style("visibility", "visible")
+        .html(chordTip(rdr(d)))
+        .style("top", function () { return (d3.event.pageY - 80)+"px"})
+        .style("left", function () { return (d3.event.pageX - 130)+"px"});
+
+    chordPaths.classed("fade", function(p) {
+        return p.source.index != i && p.target.index != i;
+    });
+}
+
 function chordTip (d) {
     var p = d3.format(".2%"), q = d3.format(",.3r");
-    return "Chord Info:<br/>"
-      + p(d.svalue/d.stotal) + " (" + q(d.svalue) + ") of "
-      + d.sname + " prefer " + d.tname
-      + (d.sname === d.tname ? "": ("<br/>while...<br/>"
-      + p(d.tvalue/d.ttotal) + " (" + q(d.tvalue) + ") of "
-      + d.tname + " prefer " + d.sname));
+    return d.sname + " to " + d.tname + "<br />"
+        + d.svalue;
 }
 
 function groupTip (d) {
