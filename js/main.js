@@ -24,8 +24,7 @@ d3.csv('data/data_3000.csv', function (error, data) {
 //Draw the chord diagram
 //*********
 var svg, rdr, chordPaths;
-var removed;
-var lang = "English";
+var lang = "";
 
 function drawChords(matrix, mmap){
     rdr = chordRdr(matrix, mmap);
@@ -145,14 +144,17 @@ function isFilteredLanguage(d) {
 // Highlight specific language
 function highlightLanguage() {
     if(lang == "") {
-        return;
-    }
-    svg.selectAll(".chord path")
-        .transition()
-        .style("opacity", 0.1);
-    svg.selectAll("path[language=\"" + lang + "\"]")
+        svg.selectAll(".chord path")
         .transition()
         .style("opacity", 1);
+    } else {
+        svg.selectAll(".chord path")
+            .transition()
+            .style("opacity", 0.1);
+        svg.selectAll("path[language=\"" + lang + "\"]")
+            .transition()
+            .style("opacity", 1); 
+    }
 }
 
 // Tooltip for arc
@@ -185,7 +187,12 @@ function groupTip (d) {
         + "Total sent: " + q(d.gvalue);
 }
 
-function changeLang(x) {
-    lang = "English";
+function changeLang() {
+    var x = d3.select("input[name=SelectLanguage]:checked").attr("value");
+    if(x == "All") {
+        lang = "";
+    } else {
+        lang = x;
+    }   
     highlightLanguage();
 }
