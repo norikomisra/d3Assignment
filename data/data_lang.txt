@@ -91,22 +91,22 @@ Georgia,
 Greece,
 Hong Kong SAR. China,
 Hungary,
-Iran. Islamic Rep.,
+Iran. Islamic Rep.,Persian
 Japan,
 Korea. Rep.,
-Kyrgyz Republic,
+Kyrgyz Republic,Russian
 Lithuania,
 Macao SAR. China,
 Nepal,
 Norway,
 Poland,
-Russian Federation,
+Russian Federation,Russian
 Slovak Republic,
 Sweden,
 Thailand,
 Turkey,
 Ukraine,
 Uzbekistan,
-Venezuela. RB,
-West Bank and Gaza,
-Yemen. Rep.,
+Venezuela. RB,Spanish
+West Bank and Gaza,Arabic
+Yemen. Rep.,Arabic
