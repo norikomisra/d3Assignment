@@ -37,14 +37,14 @@ function drawChords(matrix, mmap){
 
     //Define size of the chords
     var width = 900,
-        height = 750,
-        innerRadius = Math.min(width, height) * .41,
+        height = 900,
+        innerRadius = Math.min(width, height) * .34,
         outerRadius = innerRadius * 1.1;
 
     //Define color of the chords. We probably should use different colors for each region.
     var fill = d3.scale.ordinal()
         .domain(d3.range(1))
-        .range(["#666666"]);
+        .range(getColorArray(mmap));
 
     svg = d3.select("#area-chord").append("svg")
         .attr("width", width)
@@ -87,10 +87,10 @@ function drawChords(matrix, mmap){
         .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
         .attr("transform", function(d) {
             return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-                + "translate(" + (innerRadius + 30) + ")"
+                + "translate(" + (innerRadius + 36) + ")"
                 + (d.angle > Math.PI ? "rotate(180)" : "");
         })
-        .text(function(d) { return rdr(d).gname; });
+        .text(function(d) { return formatLabel(rdr(d).gname); });
 
 // end of drawChords
 }
@@ -116,6 +116,16 @@ function mouseover(d, i) {
     chordPaths.classed("fade", function(p) {
         return p.source.index != i && p.target.index != i;
     });
+}
+
+// Format long labels
+function formatLabel(label) {
+    if (label.length > 10) {
+        //return label.replace(" ", "\n");
+        return label
+    } else {
+        return label;
+    }
 }
 
 function chordTip (d) {
