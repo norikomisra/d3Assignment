@@ -69,6 +69,7 @@ function drawChords(matrix, mmap){
         .data(chord.chords)
         .enter().append("path")
         .attr("d", d3.svg.chord().radius(innerRadius))
+        .attr("language", chordLanguage)
         .style("fill", function(d) { return fill(d.target.index); })
         .style("opacity", 1)
         .on("mouseover", mouseoverChord)
@@ -105,6 +106,11 @@ function fade(opacity) {
       .transition()
         .style("opacity", opacity);
   };
+}
+
+// Add language information to chords
+function chordLanguage(d) {
+    return rdr(d).sname + " " + rdr(d).tname;
 }
 
 // Tooltip for arc
