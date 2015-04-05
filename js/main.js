@@ -24,6 +24,8 @@ d3.csv('data/data_3000.csv', function (error, data) {
 //Draw the chord diagram
 //*********
 var svg, rdr, chordPaths;
+var removed;
+var lang = "";
 
 function drawChords(matrix, mmap){
     rdr = chordRdr(matrix, mmap);
@@ -60,8 +62,8 @@ function drawChords(matrix, mmap){
         .style("fill", function(d) { return fill(d.index); })
         .style("stroke", function(d) { return fill(d.index); })
         .attr("d", d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius))
-        .on("mouseover", fade(.1))
-        .on("mouseout", fade(1));
+        .on("mouseover", fade())        
+        .on("mouseout", show());
 
     chordPaths = svg.append("g")
         .attr("class", "chord")
@@ -94,18 +96,63 @@ function drawChords(matrix, mmap){
                 + (d.angle > Math.PI ? "rotate(180)" : "");
         })
         .text(function(d) { return rdr(d).gname; });
+        
+        highlightLanguage();
 
 // end of drawChords
 }
 
 // Returns an event handler for fading a given chord group.
-function fade(opacity) {
-  return function(g, i) {
+function fade() {
+    return function(g, i) {
+        svg.selectAll(".chord path")
+            .filter(function(d) {
+                if(isFilteredLanguage(d)) {
+                    return true;
+                } else {
+                    return d.source.index != i && d.target.index != i;
+                }            
+            })
+            .transition()
+            .style("opacity", 0.1);
+    };
+}
+
+// Returns an event handler for unfading a given chord group.
+function show() {
+    return function(g, i) {
+        svg.selectAll(".chord path")
+            .transition()
+            .style("opacity", 1);
+        highlightLanguage();
+    };
+}
+
+// Filter for language
+function isFilteredLanguage(d) {
+    if(lang == "") {
+        return false;
+    }
+    slang = lang_dictionary[rdr(d).sname];
+    tlang = lang_dictionary[rdr(d).tname];
+    if(_.contains(slang, lang) && _.contains(tlang, lang)) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+// Highlight specific language
+function highlightLanguage() {
+    if(lang == "") {
+        return;
+    }
     svg.selectAll(".chord path")
-        .filter(function(d) { return d.source.index != i && d.target.index != i; })
-      .transition()
-        .style("opacity", opacity);
-  };
+        .transition()
+        .style("opacity", 0.1);
+    svg.selectAll("path[language=\"" + lang + "\"]")
+        .transition()
+        .style("opacity", 1);
 }
 
 // Tooltip for arc
@@ -115,10 +162,6 @@ function mouseoverArc(d, i) {
         .html(groupTip(rdr(d)))
         .style("top", function () { return (d3.event.pageY - 80)+"px"})
         .style("left", function () { return (d3.event.pageX - 130)+"px"});
-
-    chordPaths.classed("fade", function(p) {
-        return p.source.index != i && p.target.index != i;
-    });
 }
 
 // Tooltip for chord
@@ -128,10 +171,6 @@ function mouseoverChord(d, i) {
         .html(chordTip(rdr(d)))
         .style("top", function () { return (d3.event.pageY - 80)+"px"})
         .style("left", function () { return (d3.event.pageX - 130)+"px"});
-
-    chordPaths.classed("fade", function(p) {
-        return p.source.index != i && p.target.index != i;
-    });
 }
 
 function chordTip (d) {
