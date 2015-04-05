@@ -11,8 +11,11 @@ d3.csv('data/data_region.txt', function (error, data) {
     data = _.sortBy(data, "order");
     _.each(data, function (row) {
         country_order.push(row.country);
+        //console.log(row.country + ", " + row.region + ", " + row.order);
     });
 });
+
+var missing = [];
 
 // Return array of pairs sorted by regions
 function getSortedData(data) {
@@ -21,11 +24,16 @@ function getSortedData(data) {
         var r = _.indexOf(country_order, pair.receiver);
         if (s == -1 || r == -1) {
             pair["order"] = 999999;
+            if (s == -1) {
+                console.log(pair.sender);
+            }
+            if (r == -1) {
+                console.log(pair.receiver);
+            }
         } else {
            pair["order"] = s * 1000 + r; 
         }        
     });
     data = _.sortBy(data, "order");
-    console.log(data);
     return data;
 }
