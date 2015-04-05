@@ -19,10 +19,25 @@
                 <div id="tooltip"></div>
             </div>
             <div class="col-md-3">
-                <h3>Controller</h3>
-                <p>Option 1</p>
-                <p>Option 2</p>
-                <p>Option 3</p>
+                <h3>Language</h3>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="languageRadios" value="All" onchange="changeLang()" checked>
+                            All
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="languageRadios" value="English" onchange="changeLang()">
+                            English
+                    </label>
+                </div>
+                <div class="radio disabled">
+                    <label>
+                        <input type="radio" name="languageRadios" value="French" onchange="changeLang()">
+                            French
+                    </label>
+                </div>
             </div>
         </div>
     </div>

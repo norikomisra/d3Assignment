@@ -25,7 +25,7 @@ d3.csv('data/data_3000.csv', function (error, data) {
 //*********
 var svg, rdr, chordPaths;
 var removed;
-var lang = "";
+var lang = "English";
 
 function drawChords(matrix, mmap){
     rdr = chordRdr(matrix, mmap);
@@ -182,4 +182,9 @@ function groupTip (d) {
     var p = d3.format(".1%"), q = d3.format(",.3r");
     return "[" + d.gname + "]" + "<br />"
         + "Total sent: " + q(d.gvalue);
+}
+
+function changeLang(x) {
+    lang = "English";
+    highlightLanguage();
 }
