@@ -77,36 +77,17 @@ Netherlands,Western Europe
 Switzerland,Western Europe
 Australia,Australia and New Zealand
 New Zealand,Australia and New Zealand
-Albania,Southern Europe
-Armenia,Western Asia
-Azerbaijan,Western Asia
-Bangladesh,Southern Asia
-Bermuda,Northern America
-Bulgaria,Eastern Europe
-Cambodia,South-Eastern Asia
-Czech Republic,Eastern Europe
-Denmark,Northern Europe
+Bolivia,South America
 Egypt. Arab Rep.,Northern Africa
-Georgia,Western Asia
-Greece,Southern Europe
 Hong Kong SAR. China,Eastern Asia
-Hungary,Eastern Europe
 Iran. Islamic Rep.,Southern Asia
-Japan,Eastern Asia
 Korea. Rep.,Eastern Asia
 Kyrgyz Republic,Central Asia
-Lithuania,Northern Europe
 Macao SAR. China,Eastern Asia
-Nepal,Southern Asia
-Norway,Northern Europe
-Poland,Eastern Europe
-Russian Federation,Eastern Europe
+Moldova,Eastern Europe
 Slovak Republic,Eastern Europe
-Sweden,Northern Europe
-Thailand,South-Eastern Asia
-Turkey,Western Asia
-Ukraine,Eastern Europe
-Uzbekistan,Central Asia
+United Kingdom,Northern Europe
+United States,Northern America
 Venezuela. RB,South America
 West Bank and Gaza,Western Asia
 Yemen. Rep.,Western Asia
