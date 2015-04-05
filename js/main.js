@@ -142,5 +142,6 @@ function chordTip (d) {
 
 function groupTip (d) {
     var p = d3.format(".1%"), q = d3.format(",.3r");
-    return d.gname + " : " + q(d.gvalue);
+    return "[" + d.gname + "]" + "<br />"
+        + "Total sent: " + q(d.gvalue);
 }
