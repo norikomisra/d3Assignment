@@ -90,7 +90,7 @@ function drawChords(matrix, mmap){
                 + "translate(" + (innerRadius + 36) + ")"
                 + (d.angle > Math.PI ? "rotate(180)" : "");
         })
-        .text(function(d) { return formatLabel(rdr(d).gname); });
+        .text(function(d) { return rdr(d).gname; });
 
 // end of drawChords
 }
@@ -116,16 +116,6 @@ function mouseover(d, i) {
     chordPaths.classed("fade", function(p) {
         return p.source.index != i && p.target.index != i;
     });
-}
-
-// Format long labels
-function formatLabel(label) {
-    if (label.length > 10) {
-        //return label.replace(" ", "\n");
-        return label
-    } else {
-        return label;
-    }
 }
 
 function chordTip (d) {

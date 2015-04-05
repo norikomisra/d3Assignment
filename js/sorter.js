@@ -45,7 +45,6 @@ function getColorArray(mmap) {
     _.each(mmap, function (country) {
         region = region_dictionary[country.name];
         colors[country.id] = color_list[region];
-        //console.log(region);
     });
     return colors;
 }
