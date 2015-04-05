@@ -71,7 +71,6 @@ function drawChords(matrix, mmap){
         .data(chord.chords)
         .enter().append("path")
         .attr("d", d3.svg.chord().radius(innerRadius))
-        .attr("language", getLanguages)
         .style("fill", function(d) { return fill(d.target.index); })
         .style("opacity", 1)
         .on("mouseover", mouseoverChord)
