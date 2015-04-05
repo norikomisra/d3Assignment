@@ -1,8 +1,7 @@
 // Function to sort data by region
 
-region_order = [ "Northern America", "Central America", "South America", "Caribbean", "Western Europe", "Southern Europe", "Northern Europe", "Eastern Europe", "Australia and New Zealand", "Eastern Asia", "South-Eastern Asia", "Southern Asia", "Central Asia", "Western Asia", "Northern Africa", "Western Africa", "Eastern Africa", "Middle Africa", "Southern Africa"];
-country_order = [];
-colors = [];
+region_order =[ "Northern America", "Central America", "South America", "Caribbean", "Western Europe", "Southern Europe", "Northern Europe", "Eastern Europe", "Australia and New Zealand", "Eastern Asia", "South-Eastern Asia", "Southern Asia", "Central Asia", "Western Asia", "Northern Africa", "Western Africa", "Eastern Africa", "Middle Africa", "Southern Africa"]
+country_order =[]
 
 // Read regional data and sort
 d3.csv('data/data_region.txt', function (error, data) {
