@@ -1,6 +1,6 @@
-//*********
-//Create matrix ready with our own data
-//*********
+// The following codes are partially borrowed from
+// http://www.delimited.io/blog/2013/12/8/chord-diagrams-in-d3
+// We maded modifications and added language filtering
 
 // Create matrix and map
 d3.csv('data/data_3000.csv', function (error, data) {
@@ -33,8 +33,6 @@ function drawChords(matrix, mmap){
         .padding(.05)
         .sortSubgroups(d3.descending)
         .matrix(matrix);
-        //We may want to sort the chords. In that case, add the following.
-        //.sortChords(d3.descending);
 
     //Define size of the chords
     var width = 900,
@@ -51,7 +49,6 @@ function drawChords(matrix, mmap){
         .attr("width", width)
         .attr("height", height)
         .append("g")
-        //We may want to set a unique selector
         .attr("id", "circle")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
@@ -187,6 +184,7 @@ function groupTip (d) {
         + "Total sent: " + q(d.gvalue);
 }
 
+// Reflect change in the radio buttons
 function changeLang() {
     var x = d3.select("input[name=SelectLanguage]:checked").attr("value");
     if(x == "All") {

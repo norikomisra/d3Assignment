@@ -1,4 +1,4 @@
-// Function to get language
+// Original codes to get language
 
 lang_dictionary = {};
 

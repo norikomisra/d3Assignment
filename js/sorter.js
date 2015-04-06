@@ -1,4 +1,4 @@
-// Function to sort data by region and assign colors
+// Original codes to sort data by region and assign colors
 
 region_order = ["Northern America", "Central America", "South America", "Caribbean", "Western Europe", "Northern Europe", "Southern Europe", "Eastern Europe", "Australia and New Zealand", "Eastern Asia", "South-Eastern Asia", "Southern Asia", "Central Asia", "Western Asia", "Northern Africa", "Western Africa", "Eastern Africa", "Middle Africa", "Southern Africa"];
 country_order = [];

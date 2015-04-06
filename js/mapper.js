@@ -1,3 +1,6 @@
+// The following codes are borrowed from
+// http://www.delimited.io/blog/2013/12/8/chord-diagrams-in-d3
+
 //*******************************************************************
 //  CHORD MAPPER 
 //*******************************************************************
