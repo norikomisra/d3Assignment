@@ -89,14 +89,14 @@ Denmark,
 Egypt. Arab Rep.,
 Georgia,
 Greece,
-Hong Kong SAR. China,
+Hong Kong SAR. China,Chinese
 Hungary,
 Iran. Islamic Rep.,Persian
 Japan,
 Korea. Rep.,
 Kyrgyz Republic,Russian
 Lithuania,
-Macao SAR. China,
+Macao SAR. China,Chinese
 Nepal,
 Norway,
 Poland,
@@ -110,3 +110,4 @@ Uzbekistan,
 Venezuela. RB,Spanish
 West Bank and Gaza,Arabic
 Yemen. Rep.,Arabic
+China,Chinese
