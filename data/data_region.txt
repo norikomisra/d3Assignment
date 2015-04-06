@@ -91,3 +91,4 @@ United States,Northern America
 Venezuela. RB,South America
 West Bank and Gaza,Western Asia
 Yemen. Rep.,Western Asia
+China,Eastern Asia
